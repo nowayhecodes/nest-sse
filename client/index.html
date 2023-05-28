@@ -1,0 +1,10 @@
+<script type="text/javascript">
+  const eventSrc = new EventSource('/api/panda-event');
+
+  eventSrc.onmessage = (data) => {
+    const message = document.createElement('li');
+    message.innerText = data;
+
+    document.body.appendChild(message);
+  };
+</script>

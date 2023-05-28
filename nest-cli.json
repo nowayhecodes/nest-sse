@@ -1,8 +1,41 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/nest-sse/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/nest-sse/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/nest-sse",
+  "projects": {
+    "nest-sse": {
+      "type": "application",
+      "root": "apps/nest-sse",
+      "entryFile": "main",
+      "sourceRoot": "apps/nest-sse/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nest-sse/tsconfig.app.json"
+      }
+    },
+    "panda-consumer": {
+      "type": "application",
+      "root": "apps/panda-consumer",
+      "entryFile": "main",
+      "sourceRoot": "apps/panda-consumer/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/panda-consumer/tsconfig.app.json"
+      }
+    },
+    "panda-producer": {
+      "type": "application",
+      "root": "apps/panda-producer",
+      "entryFile": "main",
+      "sourceRoot": "apps/panda-producer/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/panda-producer/tsconfig.app.json"
+      }
+    }
   }
 }
